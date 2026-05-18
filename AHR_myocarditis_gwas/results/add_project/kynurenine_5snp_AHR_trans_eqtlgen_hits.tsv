@@ -1,2 +1,0 @@
-Pvalue	SNP	SNPChr	SNPPos	AssessedAllele	OtherAllele	Zscore	Gene	GeneSymbol	GeneChr	GenePos	NrCohorts	NrSamples	FDR	BonferroniP
-0.03585218	rs3184504	12	111884608	C	T	2.0987	ENSG00000106546	AHR	7	17362011	33	28204	0.9126160448390098	1

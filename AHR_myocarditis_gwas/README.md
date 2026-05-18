@@ -77,12 +77,10 @@ conda run -n wenhuai python AHR_myocarditis_gwas/scripts/15_add_docx_ahr_mediati
 - `results/add_project/AHR_two_snp_mediation_status.tsv`
 - `results/add_project/AHR_two_snp_coloc_posterior_context.tsv`
 - `results/add_project/AHR_add_project_report.md`
-- `results/add_project/kynurenine_to_AHR_expression_single_snp_wald.tsv`
-- `results/add_project/kynurenine_5snp_AHR_trans_eqtlgen_hits.tsv`
 - `results/figures/AHR_two_snp_mediation_model.png`
 - `results/figures/AHR_eqtlgen_AHR_locus_manhattan_two_snp.png`
 - `results/figures/AHR_myocarditis_locus_manhattan_two_snp.png`
 - `results/figures/AHR_coloc_summary_with_two_snp_context.png`
 - `results/figures/AHR_two_snp_wald_ratio_forest.png`
 
-说明：本地已完成 AHR expression -> myocarditis 的两 SNP Wald ratio、coloc 汇总和 Manhattan/locus 图。Kynurenine -> AHR expression 已用 OpenGWAS AHR expression association 输出探索性单 SNP Wald ratio；OpenGWAS 完整 VCF 和 eQTLGen trans-eQTL 全量文件均已检查，5 个 Kynurenine 工具 SNP 中只有 `rs3184504` 命中 AHR expression，因此仍不能完成完整 5-SNP MR。
+说明：本地已按 `加项目.docx` 完成 AHR expression -> myocarditis 的两 SNP Wald ratio、coloc 汇总、Manhattan/locus 图和中介模式图。本节主交付只纳入文档指定的 `rs17643734`、`rs59291726`。

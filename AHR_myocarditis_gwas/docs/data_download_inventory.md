@@ -71,9 +71,9 @@ conda run -n wenhuai bash AHR_myocarditis_gwas/scripts/05_download_eqtlgen_AHR_e
 - `https://tf.lisanwanglab.org/GADB/FILER2/Annotationtracks/Downloads/eQTL_gen/2019-12-11-cis-eQTLsFDR-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt.gz`
 - `https://tf.lisanwanglab.org/GADB/FILER2/Annotationtracks/Downloads/eQTL_gen/2018-07-18_SNP_AF_for_AlleleB_combined_allele_counts_and_MAF_pos_added.txt.gz`
 
-### eQTLGen trans-eQTL exposure
+### eQTLGen trans-eQTL exposure（历史下载记录，非 add-project 主交付）
 
-用途：检查是否存在支持 5-SNP `Kynurenine -> AHR expression` MR 的 AHR trans-expression summary statistics。
+用途：此前按数据下载请求检查 Kynurenine 工具 SNP 在 AHR trans-expression summary statistics 中的覆盖情况。该排查不属于 `加项目.docx` 当前主交付；当前 add-project 主交付只使用文档指定的 `rs17643734`、`rs59291726`。
 
 | 数据 | 本地路径 | 下载网址 | 当前状态 |
 | --- | --- | --- | --- |
@@ -102,7 +102,7 @@ conda run -n wenhuai aria2c \
 gzip -t AHR_myocarditis_gwas/data/raw/exposure/eqtlgen/trans/2018-09-04-trans-eQTLsFDR-CohortInfoRemoved-BonferroniAdded.txt.gz
 ```
 
-5 个 Kynurenine 工具 SNP 检查结果：
+历史检查结果：
 
 | SNP | 是否在 eQTLGen trans 文件中出现 | 是否有 AHR/ENSG00000106546 记录 |
 | --- | --- | --- |
@@ -112,21 +112,13 @@ gzip -t AHR_myocarditis_gwas/data/raw/exposure/eqtlgen/trans/2018-09-04-trans-eQ
 | `rs6540080` | 否 | 否 |
 | `rs10216901` | 否 | 否 |
 
-AHR 命中记录已保存到：
+筛选结果保留在未跟踪的原始数据目录：
 
 ```bash
-AHR_myocarditis_gwas/results/add_project/kynurenine_5snp_AHR_trans_eqtlgen_hits.tsv
+AHR_myocarditis_gwas/data/raw/exposure/eqtlgen/trans/kynurenine_5snp_AHR_trans_eqtlgen_hits.tsv
 ```
 
 命中内容为 `rs3184504 -> AHR` 一条记录：`Pvalue=0.03585218`, `Zscore=2.0987`, `NrSamples=28204`, `FDR=0.9126160448390098`, `BonferroniP=1`。
-
-结合 OpenGWAS direct association 的 `beta/se` 后，探索性单 SNP Wald ratio 已保存到：
-
-```bash
-AHR_myocarditis_gwas/results/add_project/kynurenine_to_AHR_expression_single_snp_wald.tsv
-```
-
-结果为 `rs3184504` 单 SNP `Kynurenine -> AHR expression`：`beta=-0.23179523219470696`, `se=0.11491899253375194`, `p=0.04369222225723954`。该结果不能替代完整 5-SNP MR。
 
 ### 1000 Genomes LD reference
 
@@ -145,9 +137,9 @@ tar -xzf AHR_myocarditis_gwas/data/ref/1000G/1kg.v3.tgz -C AHR_myocarditis_gwas/
 
 ## 当前仍缺或不能直接联网取得的内容
 
-### OpenGWAS AHR expression 查询
+### OpenGWAS AHR expression 查询（历史排查，非 add-project 主交付）
 
-用途：补跑 `Kynurenine -> AHR expression` 这条中介 MR 路径。
+用途：此前用于排查 Kynurenine 工具 SNP 在 AHR expression GWAS 中的覆盖情况。当前 add-project 主交付只按 `加项目.docx` 指定的 `rs17643734`、`rs59291726` 处理。
 
 需要的数据：
 
@@ -189,6 +181,6 @@ conda run -n wenhuai python AHR_myocarditis_gwas/scripts/16_fetch_opengwas_ahr_a
 conda run -n wenhuai python AHR_myocarditis_gwas/scripts/17_fetch_opengwas_dataset_files.py
 ```
 
-结论：不再需要额外下载该 OpenGWAS dataset 的“完整 VCF”，因为完整 VCF 已经下载并检查过；它仍不足以支持 5-SNP 的 `Kynurenine -> AHR expression` MR。
+结论：不再需要额外下载该 OpenGWAS dataset 的“完整 VCF”，因为完整 VCF 已经下载并检查过；该历史排查不纳入当前 add-project 主报告。
 
-2026-05-18 继续下载并检查 eQTLGen trans-eQTL summary 后，结果同样只有 `rs3184504` 命中 AHR/ENSG00000106546。因此当前已取得的 OpenGWAS AHR eQTL 和 eQTLGen trans-eQTL 数据都不能支持完整 5-SNP `Kynurenine -> AHR expression` MR。若要继续完成这条中介路径，需要另一个包含这 5 个 Kynurenine 工具 SNP 的 AHR expression full summary statistics，或接受仅 `rs3184504` 的探索性单 SNP Wald 估计。
+2026-05-18 继续下载并检查 eQTLGen trans-eQTL summary 后，结果同样只有 `rs3184504` 命中 AHR/ENSG00000106546。该信息仅作为数据覆盖记录保留，不作为 `加项目.docx` 主分析结果。

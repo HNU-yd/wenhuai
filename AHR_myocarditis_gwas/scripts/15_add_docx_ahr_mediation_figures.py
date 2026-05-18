@@ -3,9 +3,8 @@
 
 The local repository contains AHR cis-eQTL data and myocarditis locus data, so the
 two requested AHR instruments can be evaluated against the myocarditis outcomes.
-Genome-wide AHR expression data were later fetched from OpenGWAS/eQTLGen; only
-one of the five Kynurenine instruments is present, so that arm is reported as an
-exploratory single-SNP Wald result rather than a complete 5-SNP MR.
+This script intentionally limits the add-project outputs to the two SNPs named in
+the docx request: rs17643734 and rs59291726.
 """
 
 from __future__ import annotations
@@ -21,7 +20,6 @@ from matplotlib.patches import FancyArrowPatch
 
 
 PROJECT = Path(__file__).resolve().parents[1]
-ROOT = PROJECT.parent
 
 TARGET_SNPS = {
     "rs17643734": {"chr": 7, "pos": 17162882, "ea": "G", "oa": "A"},
@@ -51,13 +49,6 @@ OUTCOMES = [
 
 EXPOSURE_PATH = PROJECT / "data/formatted/exposure/eqtlgen_AHR_full_cis_eqtl.standardized.tsv.gz"
 COLOC_MAIN_PATH = PROJECT / "results/coloc/AHR_eqtlgen_coloc_main_result.tsv"
-KYN_MR_PATH = ROOT / "myocarditis_mr_reproduce/results/final_release/10_final5_mr_results.tsv"
-KYN_INSTRUMENT_PATH = ROOT / "myocarditis_mr_reproduce/results/final5_exposure_instruments.tsv"
-KYN_AHR_ASSOC_PATH = (
-    PROJECT / "data/raw/exposure/opengwas/eqtl-a-ENSG00000106546.associations.tsv.gz"
-)
-
-KYN_SNPS = ["rs4843270", "rs61825638", "rs3184504", "rs6540080", "rs10216901"]
 
 ADD_RESULTS = PROJECT / "results/add_project"
 FIG_DIR = PROJECT / "results/figures"
@@ -263,151 +254,8 @@ def build_two_snp_wald(exposure_df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def build_kyn_ahr_single_snp_wald() -> pd.DataFrame:
+def build_mediation_status(wald_df: pd.DataFrame) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
-
-    if not KYN_INSTRUMENT_PATH.exists():
-        return pd.DataFrame(rows)
-
-    instruments = read_tsv(KYN_INSTRUMENT_PATH)
-    kyn = instruments[
-        (instruments["exposure"] == "Kynurenine levels")
-        & instruments["SNP"].astype(str).isin(KYN_SNPS)
-    ].copy()
-
-    assoc = pd.DataFrame()
-    if KYN_AHR_ASSOC_PATH.exists():
-        assoc = read_tsv(KYN_AHR_ASSOC_PATH)
-
-    for snp in KYN_SNPS:
-        exp_match = kyn[kyn["SNP"].astype(str) == snp]
-        base = {
-            "exposure": "Kynurenine levels",
-            "exposure_gwas_id": "ebi-met1400-GCST90199636",
-            "outcome": "AHR expression",
-            "outcome_gwas_id": "eqtl-a-ENSG00000106546",
-            "SNP": snp,
-            "method": "Single-SNP Wald ratio",
-        }
-
-        if exp_match.empty:
-            rows.append({**base, "status": "missing_kynurenine_instrument"})
-            continue
-
-        exp_row = exp_match.iloc[0]
-        beta_exp = as_num(exp_row.get("beta.exposure"))
-        se_exp = as_num(exp_row.get("se.exposure"))
-        row = {
-            **base,
-            "status": "ok",
-            "beta_exposure": beta_exp,
-            "se_exposure": se_exp,
-            "pval_exposure": as_num(exp_row.get("pval.exposure")),
-            "effect_allele_exposure": normal_allele(exp_row.get("effect_allele.exposure")),
-            "other_allele_exposure": normal_allele(exp_row.get("other_allele.exposure")),
-            "eaf_exposure": as_num(exp_row.get("eaf.exposure")),
-            "f_stat": as_num(exp_row.get("F_stat")),
-        }
-
-        if assoc.empty:
-            rows.append(
-                {
-                    **row,
-                    "status": "missing_ahr_expression_file",
-                    "note": f"Missing {KYN_AHR_ASSOC_PATH}.",
-                }
-            )
-            continue
-
-        assoc_match = assoc[assoc["rsid"].astype(str) == snp]
-        if assoc_match.empty:
-            rows.append(
-                {
-                    **row,
-                    "status": "missing_ahr_expression_association",
-                    "note": "Not present in OpenGWAS AHR expression associations.",
-                }
-            )
-            continue
-
-        out_row = assoc_match.iloc[0]
-        beta_out = as_num(out_row.get("beta"))
-        se_out = as_num(out_row.get("se"))
-        beta_out_aligned, allele_match = align_outcome_beta(
-            beta_out,
-            out_row.get("ea"),
-            out_row.get("nea"),
-            exp_row.get("effect_allele.exposure"),
-            exp_row.get("other_allele.exposure"),
-        )
-
-        wald_beta = math.nan
-        wald_se = math.nan
-        wald_p = math.nan
-        if math.isfinite(beta_out_aligned) and beta_exp != 0:
-            wald_beta = beta_out_aligned / beta_exp
-            wald_se = math.sqrt((se_out / beta_exp) ** 2 + ((beta_out_aligned * se_exp) / (beta_exp**2)) ** 2)
-            wald_p = two_sided_p_from_z(wald_beta / wald_se)
-
-        status = "ok" if allele_match != "allele_mismatch" else "allele_mismatch"
-        rows.append(
-            {
-                **row,
-                "status": status,
-                "outcome_chr": as_num(out_row.get("chr")),
-                "outcome_pos": as_num(out_row.get("position")),
-                "beta_outcome_raw": beta_out,
-                "beta_outcome_aligned": beta_out_aligned,
-                "se_outcome": se_out,
-                "pval_outcome": as_num(out_row.get("p")),
-                "effect_allele_outcome": normal_allele(out_row.get("ea")),
-                "other_allele_outcome": normal_allele(out_row.get("nea")),
-                "eaf_outcome": as_num(out_row.get("eaf")),
-                "n_outcome": as_num(out_row.get("n")),
-                "allele_match": allele_match,
-                "wald_beta": wald_beta,
-                "wald_se": wald_se,
-                "wald_pval": wald_p,
-                "note": (
-                    "Exploratory result: only this Kynurenine instrument is available for AHR expression; "
-                    "the complete 5-SNP MR remains not computable from the current AHR expression data."
-                ),
-            }
-        )
-
-    return pd.DataFrame(rows)
-
-
-def build_mediation_status(
-    exposure_df: pd.DataFrame,
-    wald_df: pd.DataFrame,
-    kyn_ahr_df: pd.DataFrame,
-) -> pd.DataFrame:
-    rows: list[dict[str, Any]] = []
-
-    if KYN_MR_PATH.exists():
-        kyn_mr = read_tsv(KYN_MR_PATH)
-        ivw = kyn_mr[
-            (kyn_mr["exposure"] == "Kynurenine levels")
-            & (kyn_mr["method"] == "Inverse variance weighted")
-        ]
-        if not ivw.empty:
-            record = ivw.iloc[0]
-            rows.append(
-                {
-                    "mediation_arm": "Kynurenine -> Myocarditis",
-                    "status": "completed_existing_mr",
-                    "method": "Inverse variance weighted",
-                    "nsnp": record.get("nsnp"),
-                    "beta": record.get("b"),
-                    "se": record.get("se"),
-                    "pval": record.get("pval"),
-                    "or": record.get("or"),
-                    "or_lci95": record.get("or_lci95"),
-                    "or_uci95": record.get("or_uci95"),
-                    "note": "Reused existing final5 MR result.",
-                }
-            )
 
     ok_wald = wald_df[wald_df["status"] == "ok"].copy()
     rows.append(
@@ -423,81 +271,25 @@ def build_mediation_status(
             "or_lci95": pd.NA,
             "or_uci95": pd.NA,
             "note": (
-                f"{len(ok_wald)} outcome-SNP rows available across the three myocarditis datasets; "
-                "see AHR_two_significant_snp_wald_ratios.tsv."
+                "Docx-specified SNPs rs17643734 and rs59291726 were evaluated against "
+                "the three myocarditis GWAS datasets; see AHR_two_significant_snp_wald_ratios.tsv."
             ),
         }
     )
 
-    if "status" in kyn_ahr_df.columns:
-        kyn_ahr_ok = kyn_ahr_df[kyn_ahr_df["status"] == "ok"].copy()
-    else:
-        kyn_ahr_ok = pd.DataFrame()
-    if not kyn_ahr_ok.empty:
-        record = kyn_ahr_ok.iloc[0]
-        rows.append(
-            {
-                "mediation_arm": "Kynurenine -> AHR expression",
-                "status": "completed_exploratory_single_snp_not_5snp",
-                "method": "Single-SNP Wald ratio",
-                "nsnp": len(kyn_ahr_ok),
-                "beta": record.get("wald_beta"),
-                "se": record.get("wald_se"),
-                "pval": record.get("wald_pval"),
-                "or": pd.NA,
-                "or_lci95": pd.NA,
-                "or_uci95": pd.NA,
-                "note": (
-                    f"Only {', '.join(kyn_ahr_ok['SNP'].astype(str))} was present in AHR expression data. "
-                    "OpenGWAS full VCF and eQTLGen trans-eQTL were checked; complete 5-SNP MR is still not computable."
-                ),
-            }
-        )
-    else:
-        kyn_overlap = []
-        kyn_total = 0
-        if KYN_INSTRUMENT_PATH.exists():
-            instruments = read_tsv(KYN_INSTRUMENT_PATH)
-            kyn = instruments[instruments["exposure"] == "Kynurenine levels"].copy()
-            kyn_total = len(kyn)
-            exposure_snps = set(exposure_df["SNP"].astype(str))
-            kyn_overlap = sorted(set(kyn["SNP"].astype(str)) & exposure_snps)
-
-        rows.append(
-            {
-                "mediation_arm": "Kynurenine -> AHR expression",
-                "status": "not_computable_from_local_cis_eqtl",
-                "method": "MR not run",
-                "nsnp": len(kyn_overlap),
-                "beta": pd.NA,
-                "se": pd.NA,
-                "pval": pd.NA,
-                "or": pd.NA,
-                "or_lci95": pd.NA,
-                "or_uci95": pd.NA,
-                "note": (
-                    f"{len(kyn_overlap)} of {kyn_total} Kynurenine instruments were present in the local AHR cis-eQTL file. "
-                    "Genome-wide AHR expression summary statistics for eqtl-a-ENSG00000106546 are required to estimate this arm."
-                ),
-            }
-        )
-
     rows.append(
         {
-            "mediation_arm": "Indirect effect: Kynurenine -> AHR -> Myocarditis",
-            "status": "not_computed_for_full_mediation",
-            "method": "Product of coefficients",
-            "nsnp": pd.NA,
+            "mediation_arm": "AHR eQTL and Myocarditis coloc",
+            "status": "completed",
+            "method": "coloc.abf",
+            "nsnp": len(OUTCOMES),
             "beta": pd.NA,
             "se": pd.NA,
             "pval": pd.NA,
             "or": pd.NA,
             "or_lci95": pd.NA,
             "or_uci95": pd.NA,
-            "note": (
-                "Full mediation requires the complete 5-SNP Kynurenine -> AHR expression estimate; "
-                "the available one-SNP result is exploratory and not used as a definitive indirect effect."
-            ),
+            "note": "Coloc summary and SNP-level posterior context were generated for the requested AHR SNPs.",
         }
     )
 
@@ -550,7 +342,7 @@ def plot_mediation_model(output: Path) -> None:
     ax.set_axis_off()
 
     nodes = {
-        "Kynurenine\nlevels": (0.17, 0.62),
+        "Upstream exposure\n(existing MR)": (0.17, 0.62),
         "AHR expression\n(eQTLGen whole blood)": (0.50, 0.62),
         "Myocarditis\nGWAS": (0.83, 0.62),
     }
@@ -586,8 +378,8 @@ def plot_mediation_model(output: Path) -> None:
 
     ax.text(0.50, 0.76, "Mediator MR framework", ha="center", fontsize=16, weight="bold")
     ax.text(0.50, 0.43, "AHR -> myocarditis tested with rs17643734 and rs59291726", ha="center", fontsize=11)
-    ax.text(0.50, 0.35, "Kynurenine -> AHR: exploratory rs3184504-only Wald result; full 5-SNP MR unavailable", ha="center", fontsize=11)
-    ax.text(0.50, 0.27, "Existing local result: Kynurenine -> myocarditis IVW OR=1.44, P=0.0105", ha="center", fontsize=11)
+    ax.text(0.50, 0.35, "Only the two docx-specified AHR SNPs are included in this add-project output", ha="center", fontsize=11)
+    ax.text(0.50, 0.27, "Coloc and locus plots summarize AHR eQTL and myocarditis evidence", ha="center", fontsize=11)
 
     fig.savefig(output, dpi=300, bbox_inches="tight")
     plt.close(fig)
@@ -748,7 +540,6 @@ def write_report(
     wald_df: pd.DataFrame,
     status_df: pd.DataFrame,
     coloc_snp_df: pd.DataFrame,
-    kyn_ahr_df: pd.DataFrame,
 ) -> None:
     report_path = ADD_RESULTS / "AHR_add_project_report.md"
     coloc = read_tsv(COLOC_MAIN_PATH)
@@ -782,26 +573,6 @@ def write_report(
     ].copy()
 
     status_view = status_df[["mediation_arm", "status", "method", "nsnp", "beta", "se", "pval", "or", "note"]].copy()
-    kyn_ahr_cols = [
-        "SNP",
-        "status",
-        "effect_allele_exposure",
-        "other_allele_exposure",
-        "beta_exposure",
-        "se_exposure",
-        "pval_exposure",
-        "effect_allele_outcome",
-        "other_allele_outcome",
-        "beta_outcome_aligned",
-        "se_outcome",
-        "pval_outcome",
-        "wald_beta",
-        "wald_se",
-        "wald_pval",
-        "note",
-    ]
-    kyn_ahr_cols = [col for col in kyn_ahr_cols if col in kyn_ahr_df.columns]
-    kyn_ahr_view = kyn_ahr_df[kyn_ahr_cols].copy() if kyn_ahr_cols else pd.DataFrame()
     coloc_snp_view = coloc_snp_df[
         [
             "outcome_dataset",
@@ -825,17 +596,9 @@ def write_report(
 
 - 使用本地 eQTLGen AHR cis-eQTL 表提取两个 SNP 的 AHR 表达效应。
 - 在三套心肌炎 GWAS 的 AHR locus 数据中匹配两个 SNP，并计算 AHR expression -> myocarditis 的单 SNP Wald ratio。
-- 使用已下载的 OpenGWAS AHR expression association 结果，计算 Kynurenine -> AHR expression 的探索性单 SNP Wald ratio。
-- 复用既有 Kynurenine -> Myocarditis IVW MR 结果。
 - 生成中介模式图、AHR eQTL locus Manhattan 图、心肌炎 AHR locus Manhattan 图、coloc 汇总图和两 SNP forest 图。
 
-当前仍不能完成的部分：
-
-- 完整 5-SNP Kynurenine -> AHR expression MR 仍不能完成：OpenGWAS AHR expression 完整 VCF 和 eQTLGen trans-eQTL 全量文件均已检查，5 个 Kynurenine 工具 SNP 中只有 `rs3184504` 有 AHR expression association。下面的 Kynurenine -> AHR expression 结果只能作为单 SNP 探索性结果，不能替代完整 5-SNP MR。
-
-## Kynurenine -> AHR expression 探索性结果
-
-{markdown_table(kyn_ahr_view, list(kyn_ahr_view.columns)) if not kyn_ahr_view.empty else "未得到可用的 Kynurenine -> AHR expression association。"}
+说明：本报告只纳入 `加项目.docx` 指定的 `rs17643734` 和 `rs59291726`。其他未在文档中指定的 SNP 排查不属于本次主交付。
 
 ## 两 SNP Wald ratio 结果
 
@@ -862,8 +625,6 @@ def write_report(
 - `results/add_project/AHR_two_significant_snp_wald_ratios.tsv`
 - `results/add_project/AHR_two_snp_mediation_status.tsv`
 - `results/add_project/AHR_two_snp_coloc_posterior_context.tsv`
-- `results/add_project/kynurenine_to_AHR_expression_single_snp_wald.tsv`
-- `results/add_project/kynurenine_5snp_AHR_trans_eqtlgen_hits.tsv`
 - `results/figures/AHR_two_snp_mediation_model.png`
 - `results/figures/AHR_eqtlgen_AHR_locus_manhattan_two_snp.png`
 - `results/figures/AHR_myocarditis_locus_manhattan_two_snp.png`
@@ -895,7 +656,7 @@ def write_docx_task_note() -> None:
 本地执行说明：
 
 - AHR expression -> Myocarditis 已用本地 AHR cis-eQTL 和心肌炎 locus 数据完成两 SNP Wald ratio。
-- Kynurenine -> AHR expression 已检查 OpenGWAS AHR expression 完整 VCF 和 eQTLGen trans-eQTL 全量文件；5 个 Kynurenine 工具 SNP 中只有 `rs3184504` 有 AHR expression association，因此只能输出探索性单 SNP Wald ratio，不能完成完整 5-SNP MR。
+- 本次 add-project 主交付只纳入文档指定的 `rs17643734` 和 `rs59291726`；其他未在文档中指定的 SNP 排查不写入主报告。
 """
 
     (DOCS_DIR / "add_project_docx_tasks.md").write_text(note, encoding="utf-8")
@@ -908,13 +669,11 @@ def main() -> None:
 
     exposure_df = read_tsv(EXPOSURE_PATH)
     wald_df = build_two_snp_wald(exposure_df)
-    kyn_ahr_df = build_kyn_ahr_single_snp_wald()
-    status_df = build_mediation_status(exposure_df, wald_df, kyn_ahr_df)
+    status_df = build_mediation_status(wald_df)
     coloc_snp_df = build_two_snp_coloc_context()
 
     wald_df.to_csv(ADD_RESULTS / "AHR_two_significant_snp_wald_ratios.tsv", sep="\t", index=False)
     status_df.to_csv(ADD_RESULTS / "AHR_two_snp_mediation_status.tsv", sep="\t", index=False)
-    kyn_ahr_df.to_csv(ADD_RESULTS / "kynurenine_to_AHR_expression_single_snp_wald.tsv", sep="\t", index=False)
     coloc_snp_df.to_csv(ADD_RESULTS / "AHR_two_snp_coloc_posterior_context.tsv", sep="\t", index=False)
 
     plot_mediation_model(FIG_DIR / "AHR_two_snp_mediation_model.png")
@@ -923,7 +682,7 @@ def main() -> None:
     plot_coloc_summary(FIG_DIR / "AHR_coloc_summary_with_two_snp_context.png")
     plot_wald_forest(wald_df, FIG_DIR / "AHR_two_snp_wald_ratio_forest.png")
 
-    write_report(wald_df, status_df, coloc_snp_df, kyn_ahr_df)
+    write_report(wald_df, status_df, coloc_snp_df)
     write_docx_task_note()
 
     print("Additional AHR mediation deliverables written to:")

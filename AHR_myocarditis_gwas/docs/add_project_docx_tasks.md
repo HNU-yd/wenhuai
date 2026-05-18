@@ -12,4 +12,4 @@
 本地执行说明：
 
 - AHR expression -> Myocarditis 已用本地 AHR cis-eQTL 和心肌炎 locus 数据完成两 SNP Wald ratio。
-- Kynurenine -> AHR expression 已检查 OpenGWAS AHR expression 完整 VCF 和 eQTLGen trans-eQTL 全量文件；5 个 Kynurenine 工具 SNP 中只有 `rs3184504` 有 AHR expression association，因此只能输出探索性单 SNP Wald ratio，不能完成完整 5-SNP MR。
+- 本次 add-project 主交付只纳入文档指定的 `rs17643734` 和 `rs59291726`；其他未在文档中指定的 SNP 排查不写入主报告。
