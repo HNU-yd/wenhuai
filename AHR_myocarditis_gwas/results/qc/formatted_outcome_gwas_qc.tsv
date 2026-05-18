@@ -1,0 +1,4 @@
+dataset_key	formatted_file	n_rows	n_chr	min_pval	n_missing_snp	n_missing_beta	n_missing_se	n_missing_pval	n_missing_eaf	n_duplicate_variant_id	n_duplicate_snp	n_snv	n_indel
+Sakaue2021_BBJ_Myocarditis	/home/data1/wenhuai/AHR_myocarditis_gwas/data/formatted/outcome/Sakaue2021_BBJ_Myocarditis.formatted.tsv.gz	13731031	23	4.64030034669049e-07	0	0	0	0	0	295098	295098	12855098	875933
+Sakaue2021_EUR_Myocarditis	/home/data1/wenhuai/AHR_myocarditis_gwas/data/formatted/outcome/Sakaue2021_EUR_Myocarditis.formatted.tsv.gz	19564126	23	6.002e-08	0	0	0	0	0	18	18	17699132	1864994
+FinnGen_R12_I9_MYOCARD	/home/data1/wenhuai/AHR_myocarditis_gwas/data/formatted/outcome/FinnGen_R12_I9_MYOCARD.formatted.tsv.gz	21320047	23	3.19095e-07	0	0	0	0	0	0	181040	19376306	1943741

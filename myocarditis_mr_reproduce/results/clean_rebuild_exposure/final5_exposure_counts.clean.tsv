@@ -1,0 +1,6 @@
+id.exposure	exposure	exposure_nsnp	SNPs	expected_nsnp_paper
+ebi-met1400-GCST90199636	Kynurenine levels	5	rs4843270,rs61825638,rs3184504,rs6540080,rs10216901	5
+ebi-met1400-GCST90199772	1-stearoyl-GPE (18:0) levels	7	rs35853021,rs77692382,rs633695,rs438811,rs139097404,rs780093,rs174560	7
+ebi-met1400-GCST90199813	Deoxycarnitine levels	5	rs10774021,rs1171615,rs17243908,rs2072536,rs2255531	5
+ebi-met1400-GCST90200661	X-25422 levels	6	rs10240723,rs2282377,rs1620646,rs1510303,rs2169387,rs1047891	6
+ebi-met1400-GCST90200680	5-acetylamino-6-formylamino-3-methyluracil levels	3	rs13266992,rs11777998,rs62494001	4

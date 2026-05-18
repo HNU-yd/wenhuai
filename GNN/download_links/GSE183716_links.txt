@@ -1,0 +1,6 @@
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE183nnn/GSE183716/matrix/GSE183716_series_matrix.txt.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE183nnn/GSE183716/soft/GSE183716_family.soft.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE183nnn/GSE183716/suppl/GSE183716_Sample1_GEXFB_filtered_feature_bc_matrix.h5
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE183nnn/GSE183716/suppl/GSE183716_Sample2_GEXFB_filtered_feature_bc_matrix.h5
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE183nnn/GSE183716/suppl/GSE183716_Sample3_GEXFB_filtered_feature_bc_matrix.h5
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE183nnn/GSE183716/suppl/GSE183716_Sample4_GEXFB_filtered_feature_bc_matrix.h5

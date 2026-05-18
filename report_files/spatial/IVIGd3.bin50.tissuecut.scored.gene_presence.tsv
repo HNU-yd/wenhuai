@@ -1,0 +1,7 @@
+sample_id	score	n_requested	n_present	genes_present
+IVIGd3	KYN_metabolism_score	9	9	Aadat,Afmid,Haao,Ido1,Ido2,Kmo,Kynu,Qprt,Tdo2
+IVIGd3	AHR_response_score	9	9	Ahr,Ahrr,Aldh1a1,Arnt,Cyp1a1,Cyp1b1,Nqo1,Ptgs2,Tiparp
+IVIGd3	AHR_regulon_proxy_score	13	13	Ahr,Ahrr,Aldh1a1,Arnt,Cyp1a1,Cyp1b1,Il1b,Irf1,Nfkbia,Nqo1,Ptgs2,Stat1,Tiparp
+IVIGd3	myeloid_inflammation_score	11	10	Ccl2,Ccl3,Ccl4,Il1b,Irf1,Nfkbia,S100a8,S100a9,Stat1,Tnf
+IVIGd3	chemotaxis_score	11	10	Ccl2,Ccl3,Ccl4,Ccl5,Ccr1,Ccr2,Ccr5,Cxcr4,Itgam,Itgb2
+IVIGd3	antigen_presentation_score	7	2	Cd74,Ciita

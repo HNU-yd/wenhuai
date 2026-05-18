@@ -1,0 +1,4 @@
+outcome_dataset	n_settings	min_n_exposure_instruments	max_n_exposure_instruments	min_n_harmonised	max_n_harmonised	total_dropped_ambiguous_palindromic
+Sakaue2021_BBJ_Myocarditis	6	3	9	1	5	0
+Sakaue2021_EUR_Myocarditis	6	3	9	3	9	0
+FinnGen_R12_I9_MYOCARD	6	3	9	3	9	0

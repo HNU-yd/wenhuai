@@ -1,0 +1,16 @@
+sample_id	group	stage	preferred_role	preferred_path
+CVB3d1	CVB3_myocarditis	day1	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000922/STTS0001494/Final.CVB3d1.TissueCut.gem.gz
+CVB3d2	CVB3_myocarditis	day2	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000923/STTS0001495/Final.CVB3d2.TissueCut.gem.gz
+CVB3d3	CVB3_myocarditis	day3	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000924/STTS0001496/Final.CVB3d3.TissueCut.gem.gz
+CVB3d4	CVB3_myocarditis	day4	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000925/STTS0001497/Final.CVB3d4.TissueCut.gem.gz
+CVB3d5	CVB3_myocarditis	day5	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000926/STTS0001498/Final.CVB3d5.TissueCut.gem.gz
+CVB3d6	CVB3_myocarditis	day6	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000927/STTS0001499/Final.CVB3d6.TissueCut.gem.gz
+CVB3d7	CVB3_myocarditis	day7	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000928/STTS0001500/Final.CVB3d7.TissueCut.gem.gz
+Control	control	control	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000921/STTS0001493/Final.Control.TissueCut.gem.gz
+IVIGd1	IVIG_treated	day1	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000929/STTS0001501/Final.IVIGd1.TissueCut.gem.gz
+IVIGd2	IVIG_treated	day2	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000930/STTS0001502/Final.IVIGd2.TissueCut.gem.gz
+IVIGd3	IVIG_treated	day3	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000931/STTS0001503/Final.IVIGd3.TissueCut.gem.gz
+IVIGd4	IVIG_treated	day4	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000932/STTS0001504/Final.IVIGd4.TissueCut.gem.gz
+IVIGd5	IVIG_treated	day5	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000933/STTS0001505/Final.IVIGd5.TissueCut.gem.gz
+IVIGd6	IVIG_treated	day6	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000934/STTS0001506/Final.IVIGd6.TissueCut.gem.gz
+IVIGd7	IVIG_treated	day7	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000935/STTS0001507/Final.IVIGd7.TissueCut.gem.gz

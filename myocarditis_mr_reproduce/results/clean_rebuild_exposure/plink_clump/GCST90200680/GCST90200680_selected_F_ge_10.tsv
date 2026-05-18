@@ -1,0 +1,4 @@
+SNP	beta.exposure	se.exposure	pval.exposure	effect_allele.exposure	other_allele.exposure	eaf.exposure	chr.exposure	pos.exposure	exposure	mr_keep.exposure	pval_origin.exposure	id.exposure	gcst	F_stat
+rs13266992	0.62927	0.0198308	1e-200	C	T	0.17923	8	18382187	5-acetylamino-6-formylamino-3-methyluracil levels	TRUE	reported	ebi-met1400-GCST90200680	GCST90200680	1006.91679782288
+rs11777998	0.322455	0.0252861	3.02938e-37	C	G	0.115684	8	18218488	5-acetylamino-6-formylamino-3-methyluracil levels	TRUE	reported	ebi-met1400-GCST90200680	GCST90200680	162.620214198946
+rs62494001	-0.112155	0.0202105	2.86743e-08	A	G	0.202194	8	18160216	5-acetylamino-6-formylamino-3-methyluracil levels	TRUE	reported	ebi-met1400-GCST90200680	GCST90200680	30.795209543035

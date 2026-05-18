@@ -1,0 +1,17 @@
+dataset	score	n_requested	n_present	genes_present
+CNP0005824	KYN_metabolism_score	9	9	Aadat,Afmid,Haao,Ido1,Ido2,Kmo,Kynu,Qprt,Tdo2
+CNP0005824	AHR_response_score	9	9	Ahr,Ahrr,Aldh1a1,Arnt,Cyp1a1,Cyp1b1,Nqo1,Ptgs2,Tiparp
+CNP0005824	AHR_regulon_proxy_score	13	13	Ahr,Ahrr,Aldh1a1,Arnt,Cyp1a1,Cyp1b1,Il1b,Irf1,Nfkbia,Nqo1,Ptgs2,Stat1,Tiparp
+CNP0005824	myeloid_inflammation_score	11	10	Ccl2,Ccl3,Ccl4,Il1b,Irf1,Nfkbia,S100a8,S100a9,Stat1,Tnf
+CNP0005824	chemotaxis_score	11	10	Ccl2,Ccl3,Ccl4,Ccl5,Ccr1,Ccr2,Ccr5,Cxcr4,Itgam,Itgb2
+CNP0005824	antigen_presentation_score	7	2	Cd74,Ciita
+CNP0005824	marker_T_cell	5	5	Ccr7,Cd3d,Cd3e,Il7r,Trac
+CNP0005824	marker_CD8_T	4	2	Cd8a,Gzmk
+CNP0005824	marker_NK	4	3	Klrd1,Nkg7,Prf1
+CNP0005824	marker_B_cell	4	4	Bank1,Cd79a,Cd79b,Ms4a1
+CNP0005824	marker_Plasmablast	4	4	Ighg1,Jchain,Mzb1,Xbp1
+CNP0005824	marker_Monocyte	5	3	Lst1,S100a8,S100a9
+CNP0005824	marker_CD16_Monocyte	4	3	Ctss,Lst1,Ms4a7
+CNP0005824	marker_DC	4	3	Clec10a,Cst3,Fcer1a
+CNP0005824	marker_pDC	4	3	Gzmb,Irf7,Tcf4
+CNP0005824	marker_Platelet	3	3	Nrgn,Pf4,Ppbp

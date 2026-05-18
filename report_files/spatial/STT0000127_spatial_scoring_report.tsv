@@ -1,0 +1,16 @@
+sample_id	input_h5ad	output_h5ad
+CVB3d1	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/CVB3d1.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/CVB3d1.bin50.tissuecut.scored.h5ad
+CVB3d2	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/CVB3d2.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/CVB3d2.bin50.tissuecut.scored.h5ad
+CVB3d3	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/CVB3d3.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/CVB3d3.bin50.tissuecut.scored.h5ad
+CVB3d4	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/CVB3d4.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/CVB3d4.bin50.tissuecut.scored.h5ad
+CVB3d5	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/CVB3d5.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/CVB3d5.bin50.tissuecut.scored.h5ad
+CVB3d6	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/CVB3d6.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/CVB3d6.bin50.tissuecut.scored.h5ad
+CVB3d7	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/CVB3d7.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/CVB3d7.bin50.tissuecut.scored.h5ad
+Control	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/Control.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/Control.bin50.tissuecut.scored.h5ad
+IVIGd1	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/IVIGd1.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/IVIGd1.bin50.tissuecut.scored.h5ad
+IVIGd2	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/IVIGd2.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/IVIGd2.bin50.tissuecut.scored.h5ad
+IVIGd3	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/IVIGd3.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/IVIGd3.bin50.tissuecut.scored.h5ad
+IVIGd4	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/IVIGd4.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/IVIGd4.bin50.tissuecut.scored.h5ad
+IVIGd5	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/IVIGd5.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/IVIGd5.bin50.tissuecut.scored.h5ad
+IVIGd6	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/IVIGd6.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/IVIGd6.bin50.tissuecut.scored.h5ad
+IVIGd7	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut/IVIGd7.bin50.tissuecut.h5ad	/home/data1/wenhuai/data/spatial_h5ad/STT0000127/bin50_tissuecut_scored/IVIGd7.bin50.tissuecut.scored.h5ad

@@ -1,0 +1,3 @@
+score	n_values	vmin	vmax	clip_q_low	clip_q_high
+myeloid_inflammation_score_expr	111287	0.0	1.161755046844482	0.01	0.99
+AHR_response_score_expr	111287	0.0	0.4627311891317367	0.01	0.99

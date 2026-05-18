@@ -1,0 +1,4 @@
+dataset_key	path	size_bytes	sha256	file_type
+Sakaue2021_BBJ_Myocarditis	/home/data1/wenhuai/AHR_myocarditis_gwas/data/raw/outcome/sakaue_2021_BBJ/hum0197.v3.BBJ.Myo.v1.zip	1516830219	9363db28ab938591684f916270a6932569e6ea66e77c7b38351ac18cd67e885f	Zip archive data, at least v2.0 to extract
+Sakaue2021_EUR_Myocarditis	/home/data1/wenhuai/AHR_myocarditis_gwas/data/raw/outcome/sakaue_2021_EUR/hum0197.v3.EUR.Myo.v1.zip	527507451	635368a5946036ec54a96bb1a483df1649f3afb26c10806d53ab055abb5988f4	Zip archive data, at least v2.0 to extract
+FinnGen_R12_I9_MYOCARD	/home/data1/wenhuai/AHR_myocarditis_gwas/data/raw/outcome/finngen_R12/finngen_R12_I9_MYOCARD.gz	807357416	8503094db0e0c8663dfa036ff6658dc792a207472750d6bbec6602390e771548	Blocked GNU Zip Format (BGZF; gzip compatible), block length 23787

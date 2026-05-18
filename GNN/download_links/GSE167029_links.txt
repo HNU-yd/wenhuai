@@ -1,0 +1,5 @@
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167029/matrix/GSE167029_series_matrix.txt.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167029/soft/GSE167029_family.soft.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167029/suppl/GSE167029_RAW.tar
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167029/suppl/GSE167029_SeuratObject_SC_AllSamples.rds.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167029/suppl/filelist.txt

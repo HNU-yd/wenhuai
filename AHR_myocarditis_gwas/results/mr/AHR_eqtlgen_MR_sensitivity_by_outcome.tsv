@@ -1,0 +1,4 @@
+outcome_dataset	outcome_population	n_result_rows	n_min	n_max	beta_min	beta_max	OR_min	OR_max	min_pval	n_p_lt_0p05	n_positive	n_negative	conclusion
+FinnGen_R12_I9_MYOCARD	Finnish / European	6	3	9	-0.111110934458782	-0.0841541441589101	0.894839474889833	0.919289542059954	0.264923164687775	0	0	6	No nominally significant MR result across tested instrument settings
+Sakaue2021_BBJ_Myocarditis	East Asian / BBJ	6	1	5	0.0519113075952985	0.695950500897761	1.05328232022869	2.00561450662909	0.511301706921199	0	6	0	No nominally significant MR result across tested instrument settings
+Sakaue2021_EUR_Myocarditis	European	6	3	9	0.0882952890273252	0.103919625624457	1.09231062175157	1.10951127505585	0.582507956698495	0	6	0	No nominally significant MR result across tested instrument settings

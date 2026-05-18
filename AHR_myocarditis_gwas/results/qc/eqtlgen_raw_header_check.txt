@@ -1,0 +1,96 @@
+============================================================
+FILE_KEY: eqtlgen_significant_FDR0.05
+FILE: /home/data1/wenhuai/AHR_myocarditis_gwas/data/raw/exposure/eqtlgen/2019-12-11-cis-eQTLsFDR0.05-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt.gz
+SIZE_BYTES: 322775879
+SHA256: 8d963046d7b74cf3533c3510614cdc724e7ad0e325a3d2f7cca63ad13661b4c4
+FILE_TYPE: gzip compressed data, was "2019-12-11-cis-eQTLsFDR0.05-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt", last modified: Sun Dec 22 14:19:58 2019, from Unix, original size modulo 2^32 1134455368
+
+[HEAD]
+Pvalue	SNP	SNPChr	SNPPos	AssessedAllele	OtherAllele	Zscore	Gene	GeneSymbol	GeneChr	GenePos	NrCohorts	NrSamples	FDR	BonferroniP
+3.2717E-310	rs12230244	12	10117369	T	A	200.7534	ENSG00000172322	CLEC12A	12	10126104	34	30596	0.0	4.1662E-302
+3.2717E-310	rs12229020	12	10117683	G	C	200.6568	ENSG00000172322	CLEC12A	12	10126104	34	30596	0.0	4.1662E-302
+3.2717E-310	rs61913527	12	10116198	T	C	200.2654	ENSG00000172322	CLEC12A	12	10126104	34	30598	0.0	4.1662E-302
+3.2717E-310	rs2594103	12	10115428	T	C	200.042	ENSG00000172322	CLEC12A	12	10126104	34	30598	0.0	4.1662E-302
+3.2717E-310	rs12231833	12	10118428	A	G	199.9508	ENSG00000172322	CLEC12A	12	10126104	34	30592	0.0	4.1662E-302
+3.2717E-310	rs12231872	12	10118747	C	G	199.7708	ENSG00000172322	CLEC12A	12	10126104	33	30268	0.0	4.1662E-302
+3.2717E-310	rs1466086	12	10114814	G	C	199.1411	ENSG00000172322	CLEC12A	12	10126104	34	30599	0.0	4.1662E-302
+
+[HEADER_ONLY]
+     1	Pvalue
+     2	SNP
+     3	SNPChr
+     4	SNPPos
+     5	AssessedAllele
+     6	OtherAllele
+     7	Zscore
+     8	Gene
+     9	GeneSymbol
+    10	GeneChr
+    11	GenePos
+    12	NrCohorts
+    13	NrSamples
+    14	FDR
+    15	BonferroniP
+
+============================================================
+FILE_KEY: eqtlgen_full_cis_eQTL
+FILE: /home/data1/wenhuai/AHR_myocarditis_gwas/data/raw/exposure/eqtlgen/2019-12-11-cis-eQTLsFDR-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt.gz
+SIZE_BYTES: 3880187026
+SHA256: 1133a89fe33b795dde7e480e39841fbd0787bfdb5d18ef19058fa749a936f814
+FILE_TYPE: gzip compressed data, was "2019-12-11-cis-eQTLsFDR-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt", last modified: Sun Dec 22 13:00:47 2019, max compression, original size modulo 2^32 996408183
+
+[HEAD]
+Pvalue	SNP	SNPChr	SNPPos	AssessedAllele	OtherAllele	Zscore	Gene	GeneSymbol	GeneChr	GenePos	NrCohorts	NrSamples	FDR	BonferroniP
+3.2717E-310	rs12230244	12	10117369	T	A	200.7534	ENSG00000172322	CLEC12A	12	10126104	34	30596	0.0	4.1662E-302
+3.2717E-310	rs12229020	12	10117683	G	C	200.6568	ENSG00000172322	CLEC12A	12	10126104	34	30596	0.0	4.1662E-302
+3.2717E-310	rs61913527	12	10116198	T	C	200.2654	ENSG00000172322	CLEC12A	12	10126104	34	30598	0.0	4.1662E-302
+3.2717E-310	rs2594103	12	10115428	T	C	200.042	ENSG00000172322	CLEC12A	12	10126104	34	30598	0.0	4.1662E-302
+3.2717E-310	rs12231833	12	10118428	A	G	199.9508	ENSG00000172322	CLEC12A	12	10126104	34	30592	0.0	4.1662E-302
+3.2717E-310	rs12231872	12	10118747	C	G	199.7708	ENSG00000172322	CLEC12A	12	10126104	33	30268	0.0	4.1662E-302
+3.2717E-310	rs1466086	12	10114814	G	C	199.1411	ENSG00000172322	CLEC12A	12	10126104	34	30599	0.0	4.1662E-302
+
+[HEADER_ONLY]
+     1	Pvalue
+     2	SNP
+     3	SNPChr
+     4	SNPPos
+     5	AssessedAllele
+     6	OtherAllele
+     7	Zscore
+     8	Gene
+     9	GeneSymbol
+    10	GeneChr
+    11	GenePos
+    12	NrCohorts
+    13	NrSamples
+    14	FDR
+    15	BonferroniP
+
+============================================================
+FILE_KEY: eqtlgen_allele_frequency
+FILE: /home/data1/wenhuai/AHR_myocarditis_gwas/data/raw/exposure/eqtlgen/2018-07-18_SNP_AF_for_AlleleB_combined_allele_counts_and_MAF_pos_added.txt.gz
+SIZE_BYTES: 240045342
+SHA256: edffd43094598d08db6b423f7b3ce68b000a02f0b993ea4cfcf1f61a8175485d
+FILE_TYPE: gzip compressed data, was "2018-07-18_SNP_AF_for_AlleleB_combined_allele_counts_and_MAF_pos_added.txt", last modified: Mon Oct  1 08:13:17 2018, from Unix, original size modulo 2^32 626305796
+
+[HEAD]
+SNP	hg19_chr	hg19_pos	AlleleA	AlleleB	allA_total	allAB_total	allB_total	AlleleB_all
+rs140337953	1	30923	T	G	71	10	1	0.0731707317073171
+rs146477069	1	54421	A	G	75	6	0	0.037037037037037
+rs141149254	1	54490	G	A	381	122	5	0.12992125984252
+rs2462492	1	54676	C	T	54	64	29	0.414965986394558
+rs143174675	1	54753	T	G	73	8	1	0.0609756097560976
+rs3091274	1	55164	A	C	359	25	0	0.0325520833333333
+rs3107975	1	55326	T	C	932	23	0	0.0120418848167539
+
+[HEADER_ONLY]
+     1	SNP
+     2	hg19_chr
+     3	hg19_pos
+     4	AlleleA
+     5	AlleleB
+     6	allA_total
+     7	allAB_total
+     8	allB_total
+     9	AlleleB_all
+

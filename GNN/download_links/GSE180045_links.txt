@@ -1,0 +1,5 @@
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE180nnn/GSE180045/matrix/GSE180045-GPL24247_series_matrix.txt.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE180nnn/GSE180045/matrix/GSE180045-GPL24676_series_matrix.txt.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE180nnn/GSE180045/soft/GSE180045_family.soft.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE180nnn/GSE180045/suppl/GSE180045_RAW.tar
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE180nnn/GSE180045/suppl/filelist.txt

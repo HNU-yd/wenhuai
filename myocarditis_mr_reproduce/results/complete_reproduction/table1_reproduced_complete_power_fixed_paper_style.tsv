@@ -1,0 +1,6 @@
+id.exposure	Outcome	Exposure	nSNP	expected_nsnp_paper	IVW_Pval_FDR	IVW_raw_pval	OR	OR_ci95	Heterogeneity_Q	Heterogeneity_pval	Egger_intercept	Pleiotropy_pval	Steiger_direction	Steiger_pval	Power_approx_percent_aux	exposure_r2_approx	MR_PRESSO_global_p	MR_PRESSO_outlier_snps	MR_PRESSO_status	FDR_source	Power_reported_percent	Power
+ebi-met1400-GCST90199636	Myocarditis	Kynurenine levels	5	5	0.01757	0.01054	1.441	1.089-1.906	4.697	0.3199	-0.0352	0.6525			99.9945801253975	0.0373835508227352	0.4142		ok	final5_only	81.6	81.6%
+ebi-met1400-GCST90199772	Myocarditis	1-stearoyl-GPE (18:0) levels	7	7	0.02879	0.02537	1.263	1.029-1.550	5.93	0.4311	0.01449	0.7963			99.7856010290173	0.0608138001032741	0.4861		ok	final5_only	100	100%
+ebi-met1400-GCST90199813	Myocarditis	Deoxycarnitine levels	5	5	0.02879	0.02879	0.8134	0.676-0.979	2.446	0.6544	0.02537	0.522			99.7860081365806	0.0764791044835289	0.6073		ok	final5_only	64	64.0%
+ebi-met1400-GCST90200661	Myocarditis	X-25422 levels	6	6	0.00948	0.001896	0.7211	0.587-0.886	0.763	0.9793	-0.008199	0.868			99.9996338424527	0.0558794630066387	0.9848		ok	final5_only	88	88.0%
+ebi-met1400-GCST90200680	Myocarditis	5-acetylamino-6-formylamino-3-methyluracil levels	4	4	0.01757	0.007773	0.8637	0.775-0.962	2.513	0.473	-0.004965	0.9056			99.9935084226363	0.191903904578848	0.591		ok	final5_only	73.7	73.7%

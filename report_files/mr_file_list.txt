@@ -1,0 +1,17 @@
+./myocarditis_mr_reproduce/plots/complete_reproduction/final5_leave_one_out.pdf
+./myocarditis_mr_reproduce/results/clean_outcome_mr/07_harmonised_mr_keep.tsv
+./myocarditis_mr_reproduce/results/clean_outcome_mr/10_final5_mr_results.tsv
+./myocarditis_mr_reproduce/results/clean_outcome_mr/11_final5_ivw_only.tsv
+./myocarditis_mr_reproduce/results/clean_outcome_mr/12_heterogeneity.tsv
+./myocarditis_mr_reproduce/results/clean_outcome_mr/13_pleiotropy_egger_intercept.tsv
+./myocarditis_mr_reproduce/results/clean_outcome_mr/15_leave_one_out.tsv
+./myocarditis_mr_reproduce/results/complete_reproduction/leave_one_out_for_plots.tsv
+./myocarditis_mr_reproduce/results/complete_reproduction/mrpresso_summary.tsv
+./myocarditis_mr_reproduce/results/complete_reproduction/power_approximation.tsv
+./myocarditis_mr_reproduce/results/complete_reproduction/table1_reproduced_complete_power_fixed.tsv
+./myocarditis_mr_reproduce/results/complete_reproduction/table1_reproduced_complete_power_fixed_paper_style.tsv
+./myocarditis_mr_reproduce/results/final_release/10_final5_mr_results.tsv
+./myocarditis_mr_reproduce/results/final_release/11_final5_ivw_only.tsv
+./myocarditis_mr_reproduce/results/final_release/12_heterogeneity.tsv
+./myocarditis_mr_reproduce/results/final_release/13_pleiotropy_egger_intercept.tsv
+./myocarditis_mr_reproduce/results/final_release/15_leave_one_out.tsv

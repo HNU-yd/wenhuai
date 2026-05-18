@@ -1,0 +1,66 @@
+# Python / R runtime artifacts
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.Rhistory
+.RData
+.Rproj.user/
+
+# Logs and temporary files
+/logs/
+*.log
+wget-log*
+*.tmp
+
+# Top-level raw data and large intermediates
+/data/
+/results/
+GNN/CNP0005824_snRNA/
+GNN/GEO/
+GNN/STT0000127_stereo/
+GNN/supplement/
+GNN/logs/
+
+# AHR GWAS raw data and logs; scripts, docs, config, and lightweight results stay tracked.
+AHR_myocarditis_gwas/data/
+AHR_myocarditis_gwas/logs/
+AHR_myocarditis_gwas/AHR_myocarditis_genetic_results_pack.tar.gz
+
+# MR reproduction raw data, LD reference, logs, and downloaded archives.
+myocarditis_mr_reproduce/data/
+myocarditis_mr_reproduce/exposure/
+myocarditis_mr_reproduce/exposure_full/
+myocarditis_mr_reproduce/ld/
+myocarditis_mr_reproduce/outcome/
+myocarditis_mr_reproduce/raw/
+myocarditis_mr_reproduce/logs/
+myocarditis_mr_reproduce/plots/
+myocarditis_mr_reproduce/wget-log*
+
+# Public Scanpy package generated/downloaded outputs.
+kyn_ahr_v0_public/raw/
+kyn_ahr_v0_public/processed/
+kyn_ahr_v0_public/figures/
+kyn_ahr_v0_public/tables/
+kyn_ahr_v0_public/README_files/
+
+# Large scientific data / archive formats should not be committed by default.
+*.h5ad
+*.loom
+*.rds
+*.RDS
+*.mtx
+*.mtx.gz
+*.gem.gz
+*.bed
+*.bim
+*.fam
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.rar
+
+# Generated writing bundle; report_files/ contains the unpacked lightweight contents.
+report_files_for_writing.tar.gz

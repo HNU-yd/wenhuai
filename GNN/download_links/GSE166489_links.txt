@@ -1,0 +1,4 @@
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166489/matrix/GSE166489_series_matrix.txt.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166489/soft/GSE166489_family.soft.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166489/suppl/GSE166489_RAW.tar
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166489/suppl/filelist.txt

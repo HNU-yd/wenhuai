@@ -1,0 +1,16 @@
+sample_id	group	stage	stage_order	preferred_role	preferred_path	size_gb	n_records_scanned	unique_genes_scanned	x_min	x_max	y_min	y_max	total_counts_scanned	mean_counts_per_record
+CVB3d1	CVB3_myocarditis	day1	1	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000922/STTS0001494/Final.CVB3d1.TissueCut.gem.gz	0.20977	2000000	2210	7517	20460	8757	18030	3170156.0	1.585078
+CVB3d2	CVB3_myocarditis	day2	2	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000923/STTS0001495/Final.CVB3d2.TissueCut.gem.gz	0.18287	2000000	2331	8390	17194	10235	23300	2951259.0	1.4756295
+CVB3d3	CVB3_myocarditis	day3	3	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000924/STTS0001496/Final.CVB3d3.TissueCut.gem.gz	0.21945	2000000	1581	8547	18346	7601	21797	2827335.0	1.4136675
+CVB3d4	CVB3_myocarditis	day4	4	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000925/STTS0001497/Final.CVB3d4.TissueCut.gem.gz	0.28626	2000000	1176	6755	19352	5758	15502	2867388.0	1.433694
+CVB3d5	CVB3_myocarditis	day5	5	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000926/STTS0001498/Final.CVB3d5.TissueCut.gem.gz	0.09527	2000000	3461	10665	17573	8508	19066	3036702.0	1.518351
+CVB3d6	CVB3_myocarditis	day6	6	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000927/STTS0001499/Final.CVB3d6.TissueCut.gem.gz	0.58733	2000000	781	8011	17584	5403	19783	2723234.0	1.361617
+CVB3d7	CVB3_myocarditis	day7	7	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000928/STTS0001500/Final.CVB3d7.TissueCut.gem.gz	0.14816	2000000	2411	5274	20237	12523	22113	2872833.0	1.4364165
+IVIGd1	IVIG_treated	day1	1	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000929/STTS0001501/Final.IVIGd1.TissueCut.gem.gz	0.2452	2000000	1755	6787	19961	9382	18188	2832426.0	1.416213
+IVIGd2	IVIG_treated	day2	2	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000930/STTS0001502/Final.IVIGd2.TissueCut.gem.gz	0.39143	2000000	1218	5327	19680	6901	17223	2758872.0	1.379436
+IVIGd3	IVIG_treated	day3	3	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000931/STTS0001503/Final.IVIGd3.TissueCut.gem.gz	0.3027	2000000	1520	10259	23807	3619	14925	2565078.0	1.282539
+IVIGd4	IVIG_treated	day4	4	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000932/STTS0001504/Final.IVIGd4.TissueCut.gem.gz	0.17095	2000000	1877	11559	20026	3761	15868	2930500.0	1.46525
+IVIGd5	IVIG_treated	day5	5	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000933/STTS0001505/Final.IVIGd5.TissueCut.gem.gz	0.22852	2000000	1897	9331	18751	12368	24406	2838385.0	1.4191925
+IVIGd6	IVIG_treated	day6	6	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000934/STTS0001506/Final.IVIGd6.TissueCut.gem.gz	0.3406	2000000	1100	4536	14234	2931	17638	3015491.0	1.5077455
+IVIGd7	IVIG_treated	day7	7	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000935/STTS0001507/Final.IVIGd7.TissueCut.gem.gz	0.45194	2000000	918	380	15100	11153	20742	2823851.0	1.4119255
+Control	control	control	0	tissuecut_gem	/home/data1/wenhuai/data/STT0000127/Analysis/STSA0000921/STTS0001493/Final.Control.TissueCut.gem.gz	0.17324	2000000	2211	7372	17246	5624	18905	3027757.0	1.5138785
