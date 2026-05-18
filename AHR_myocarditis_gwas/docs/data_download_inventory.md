@@ -109,3 +109,27 @@ tar -xzf AHR_myocarditis_gwas/data/ref/1000G/1kg.v3.tgz -C AHR_myocarditis_gwas/
 - OpenGWAS 绝大多数 API endpoint 当前要求 JWT。
 - 需要在 `https://api.opengwas.io/profile/` 登录后生成 token。
 - 使用 R 包时可在环境变量中设置：`OPENGWAS_JWT=<your_token>`。
+
+2026-05-18 使用 JWT 检查后的结果：
+
+- `/api/associations` direct 查询已可用，并已保存到本地：
+  `AHR_myocarditis_gwas/data/raw/exposure/opengwas/eqtl-a-ENSG00000106546.associations.tsv.gz`
+- direct 查询 5 个 Kynurenine 工具 SNP 只返回 `rs3184504`。
+- `proxies=1` 查询只额外返回 `rs4843270` 的 proxy 信息，仍缺 `rs61825638`、`rs6540080`、`rs10216901`。
+- 已通过 `/api/gwasinfo/files` 下载完整 OpenGWAS VCF 到本地：
+  `AHR_myocarditis_gwas/data/raw/exposure/opengwas/eqtl-a-ENSG00000106546.vcf.gz`
+  和 `.tbi`。
+- 完整 VCF 的 header 显示 `TotalVariants=19830`，基于 GRCh37/HG19。
+- 完整 VCF 中 5 个 Kynurenine 工具 SNP 仍只有 `rs3184504` 存在，因此缺失不是 associations 接口漏查，而是该 OpenGWAS AHR eQTL dataset 本身不包含另外 4 个 direct SNP。
+
+可复用脚本：
+
+```bash
+# 拉取指定 SNP association；JWT 可通过 OPENGWAS_JWT 或 stdin 传入
+conda run -n wenhuai python AHR_myocarditis_gwas/scripts/16_fetch_opengwas_ahr_associations.py
+
+# 下载 OpenGWAS 返回的完整 dataset VCF 和 tbi；JWT 可通过 OPENGWAS_JWT 或 stdin 传入
+conda run -n wenhuai python AHR_myocarditis_gwas/scripts/17_fetch_opengwas_dataset_files.py
+```
+
+结论：不再需要额外下载该 OpenGWAS dataset 的“完整 VCF”，因为完整 VCF 已经下载并检查过；它仍不足以支持 5-SNP 的 `Kynurenine -> AHR expression` MR。若要继续完成这条中介路径，需要另一个包含这些 Kynurenine 工具 SNP 的 AHR expression full summary statistics，或接受仅 `rs3184504` 的探索性单 SNP Wald 估计。
