@@ -1,0 +1,34 @@
+name: wenhuai
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - pandas
+  - numpy
+  - matplotlib
+  - scipy
+  - r-base=4.4
+  - r-data.table
+  - r-ggplot2
+  - r-coloc
+  - r-remotes
+  - plink
+  - htslib
+  - wget
+  - curl
+  - unzip
+  - zip
+  - git
+  - ca-certificates
+  - openssl
+
+# Recreate with:
+#   conda env create -f environment.wenhuai.yml
+#
+# Optional package not installed by conda:
+#   TwoSampleMR
+# Install it when GitHub/r-universe/CRAN are reachable from the machine:
+#   conda run -n wenhuai Rscript -e "install.packages('TwoSampleMR', repos=c('https://mrcieu.r-universe.dev', 'https://cloud.r-project.org'))"
+# or:
+#   conda run -n wenhuai Rscript -e "remotes::install_github('MRCIEU/TwoSampleMR')"
