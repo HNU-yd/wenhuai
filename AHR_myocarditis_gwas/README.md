@@ -55,3 +55,32 @@ AHR_myocarditis_gwas/
     ├── smr/
     └── figures/
 ````
+
+---
+
+## 3. `加项目.docx` 补充分析
+
+补充任务围绕 AHR expression GWAS `eqtl-a-ENSG00000106546`，只分析两个指定显著 SNP：
+
+- `rs17643734`
+- `rs59291726`
+
+可复现脚本：
+
+```bash
+conda run -n visualdna python AHR_myocarditis_gwas/scripts/15_add_docx_ahr_mediation_figures.py
+```
+
+主要输出：
+
+- `results/add_project/AHR_two_significant_snp_wald_ratios.tsv`
+- `results/add_project/AHR_two_snp_mediation_status.tsv`
+- `results/add_project/AHR_two_snp_coloc_posterior_context.tsv`
+- `results/add_project/AHR_add_project_report.md`
+- `results/figures/AHR_two_snp_mediation_model.png`
+- `results/figures/AHR_eqtlgen_AHR_locus_manhattan_two_snp.png`
+- `results/figures/AHR_myocarditis_locus_manhattan_two_snp.png`
+- `results/figures/AHR_coloc_summary_with_two_snp_context.png`
+- `results/figures/AHR_two_snp_wald_ratio_forest.png`
+
+说明：本地已完成 AHR expression -> myocarditis 的两 SNP Wald ratio、coloc 汇总和 Manhattan/locus 图。Kynurenine -> AHR expression 这条中介路径需要 full AHR expression GWAS summary statistics，或可访问 OpenGWAS `eqtl-a-ENSG00000106546` 的 JWT；当前本地 AHR cis-eQTL 文件不足以计算该路径。

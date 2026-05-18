@@ -1,0 +1,5 @@
+mediation_arm	status	method	nsnp	beta	se	pval	or	or_lci95	or_uci95	note
+Kynurenine -> Myocarditis	completed_existing_mr	Inverse variance weighted	5	0.365196011789701	0.142791782759392	0.0105414763462652	1.44079639355257	1.08906999623301	1.90611646161809	Reused existing final5 MR result.
+AHR expression -> Myocarditis	completed_two_snp_wald_where_available	Single-SNP Wald ratio	2							5 outcome-SNP rows available across the three myocarditis datasets; see AHR_two_significant_snp_wald_ratios.tsv.
+Kynurenine -> AHR expression	not_computable_from_local_cis_eqtl	MR not run	0							0 of 5 Kynurenine instruments were present in the local AHR cis-eQTL file. Genome-wide AHR expression summary statistics for eqtl-a-ENSG00000106546, or an OpenGWAS JWT, are required to estimate this arm.
+Indirect effect: Kynurenine -> AHR -> Myocarditis	not_computed	Product of coefficients								Requires the missing Kynurenine -> AHR expression MR estimate.
