@@ -1,5 +1,5 @@
 mediation_arm	status	method	nsnp	beta	se	pval	or	or_lci95	or_uci95	note
 Kynurenine -> Myocarditis	completed_existing_mr	Inverse variance weighted	5	0.365196011789701	0.142791782759392	0.0105414763462652	1.44079639355257	1.08906999623301	1.90611646161809	Reused existing final5 MR result.
 AHR expression -> Myocarditis	completed_two_snp_wald_where_available	Single-SNP Wald ratio	2							5 outcome-SNP rows available across the three myocarditis datasets; see AHR_two_significant_snp_wald_ratios.tsv.
-Kynurenine -> AHR expression	not_computable_from_local_cis_eqtl	MR not run	0							0 of 5 Kynurenine instruments were present in the local AHR cis-eQTL file. Genome-wide AHR expression summary statistics for eqtl-a-ENSG00000106546, or an OpenGWAS JWT, are required to estimate this arm.
-Indirect effect: Kynurenine -> AHR -> Myocarditis	not_computed	Product of coefficients								Requires the missing Kynurenine -> AHR expression MR estimate.
+Kynurenine -> AHR expression	completed_exploratory_single_snp_not_5snp	Single-SNP Wald ratio	1	-0.23179523219470696	0.11491899253375194	0.04369222225723954				Only rs3184504 was present in AHR expression data. OpenGWAS full VCF and eQTLGen trans-eQTL were checked; complete 5-SNP MR is still not computable.
+Indirect effect: Kynurenine -> AHR -> Myocarditis	not_computed_for_full_mediation	Product of coefficients								Full mediation requires the complete 5-SNP Kynurenine -> AHR expression estimate; the available one-SNP result is exploratory and not used as a definitive indirect effect.

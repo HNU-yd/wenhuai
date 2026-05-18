@@ -120,6 +120,14 @@ AHR_myocarditis_gwas/results/add_project/kynurenine_5snp_AHR_trans_eqtlgen_hits.
 
 命中内容为 `rs3184504 -> AHR` 一条记录：`Pvalue=0.03585218`, `Zscore=2.0987`, `NrSamples=28204`, `FDR=0.9126160448390098`, `BonferroniP=1`。
 
+结合 OpenGWAS direct association 的 `beta/se` 后，探索性单 SNP Wald ratio 已保存到：
+
+```bash
+AHR_myocarditis_gwas/results/add_project/kynurenine_to_AHR_expression_single_snp_wald.tsv
+```
+
+结果为 `rs3184504` 单 SNP `Kynurenine -> AHR expression`：`beta=-0.23179523219470696`, `se=0.11491899253375194`, `p=0.04369222225723954`。该结果不能替代完整 5-SNP MR。
+
 ### 1000 Genomes LD reference
 
 | 数据 | 本地路径 | 下载网址 | 当前状态 |
