@@ -20,7 +20,7 @@ environment.wenhuai.yml
 
 - Python: `pandas`, `numpy`, `matplotlib`, `scipy`
 - R: `data.table`, `coloc`, `ggplot2`
-- 命令行工具：`plink`, `tabix`, `wget`, `curl`, `unzip`
+- 命令行工具：`plink`, `tabix`, `aria2c`, `wget`, `curl`, `unzip`
 
 `TwoSampleMR` 未能在当前机器联网安装：GitHub、MRCIEU r-universe 和 CRAN 访问均超时；conda-forge/bioconda 也没有 `r-twosamplemr` 包。网络可用后可执行：
 
@@ -70,6 +70,55 @@ conda run -n wenhuai bash AHR_myocarditis_gwas/scripts/05_download_eqtlgen_AHR_e
 - `https://tf.lisanwanglab.org/GADB/FILER2/Annotationtracks/Downloads/eQTL_gen/2019-12-11-cis-eQTLsFDR0.05-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt.gz`
 - `https://tf.lisanwanglab.org/GADB/FILER2/Annotationtracks/Downloads/eQTL_gen/2019-12-11-cis-eQTLsFDR-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt.gz`
 - `https://tf.lisanwanglab.org/GADB/FILER2/Annotationtracks/Downloads/eQTL_gen/2018-07-18_SNP_AF_for_AlleleB_combined_allele_counts_and_MAF_pos_added.txt.gz`
+
+### eQTLGen trans-eQTL exposure
+
+用途：检查是否存在支持 5-SNP `Kynurenine -> AHR expression` MR 的 AHR trans-expression summary statistics。
+
+| 数据 | 本地路径 | 下载网址 | 当前状态 |
+| --- | --- | --- | --- |
+| eQTLGen trans-eQTL summary | `AHR_myocarditis_gwas/data/raw/exposure/eqtlgen/trans/2018-09-04-trans-eQTLsFDR-CohortInfoRemoved-BonferroniAdded.txt.gz` | `https://molgenis26.gcc.rug.nl/downloads/eqtlgen/trans-eqtl/2018-09-04-trans-eQTLsFDR-CohortInfoRemoved-BonferroniAdded.txt.gz` | 已下载；`gzip -t` 通过；大小约 5.7G |
+
+用户提供的镜像 URL：
+
+```text
+https://tf.lisanwanglab.org/GADB/FILER2/Annotationtracks/Downloads/eQTL_gen/2018-09-04-trans-eQTLsFDR-CohortInfoRemoved-BonferroniAdded.txt.gz
+```
+
+该镜像在本机 HEAD 检查可返回 200，但实际传输时 `wget`/`curl` 中断。已改用 eQTLGen/Molgenis 官方下载地址；该站证书当前过期，因此下载时需要关闭证书校验。
+
+可复用下载命令：
+
+```bash
+mkdir -p AHR_myocarditis_gwas/data/raw/exposure/eqtlgen/trans
+conda run -n wenhuai aria2c \
+  --check-certificate=false \
+  --continue=true \
+  --max-connection-per-server=8 \
+  --split=8 \
+  -d AHR_myocarditis_gwas/data/raw/exposure/eqtlgen/trans \
+  -o 2018-09-04-trans-eQTLsFDR-CohortInfoRemoved-BonferroniAdded.txt.gz \
+  https://molgenis26.gcc.rug.nl/downloads/eqtlgen/trans-eqtl/2018-09-04-trans-eQTLsFDR-CohortInfoRemoved-BonferroniAdded.txt.gz
+gzip -t AHR_myocarditis_gwas/data/raw/exposure/eqtlgen/trans/2018-09-04-trans-eQTLsFDR-CohortInfoRemoved-BonferroniAdded.txt.gz
+```
+
+5 个 Kynurenine 工具 SNP 检查结果：
+
+| SNP | 是否在 eQTLGen trans 文件中出现 | 是否有 AHR/ENSG00000106546 记录 |
+| --- | --- | --- |
+| `rs4843270` | 否 | 否 |
+| `rs61825638` | 否 | 否 |
+| `rs3184504` | 是 | 是 |
+| `rs6540080` | 否 | 否 |
+| `rs10216901` | 否 | 否 |
+
+AHR 命中记录已保存到：
+
+```bash
+AHR_myocarditis_gwas/results/add_project/kynurenine_5snp_AHR_trans_eqtlgen_hits.tsv
+```
+
+命中内容为 `rs3184504 -> AHR` 一条记录：`Pvalue=0.03585218`, `Zscore=2.0987`, `NrSamples=28204`, `FDR=0.9126160448390098`, `BonferroniP=1`。
 
 ### 1000 Genomes LD reference
 
@@ -132,4 +181,6 @@ conda run -n wenhuai python AHR_myocarditis_gwas/scripts/16_fetch_opengwas_ahr_a
 conda run -n wenhuai python AHR_myocarditis_gwas/scripts/17_fetch_opengwas_dataset_files.py
 ```
 
-结论：不再需要额外下载该 OpenGWAS dataset 的“完整 VCF”，因为完整 VCF 已经下载并检查过；它仍不足以支持 5-SNP 的 `Kynurenine -> AHR expression` MR。若要继续完成这条中介路径，需要另一个包含这些 Kynurenine 工具 SNP 的 AHR expression full summary statistics，或接受仅 `rs3184504` 的探索性单 SNP Wald 估计。
+结论：不再需要额外下载该 OpenGWAS dataset 的“完整 VCF”，因为完整 VCF 已经下载并检查过；它仍不足以支持 5-SNP 的 `Kynurenine -> AHR expression` MR。
+
+2026-05-18 继续下载并检查 eQTLGen trans-eQTL summary 后，结果同样只有 `rs3184504` 命中 AHR/ENSG00000106546。因此当前已取得的 OpenGWAS AHR eQTL 和 eQTLGen trans-eQTL 数据都不能支持完整 5-SNP `Kynurenine -> AHR expression` MR。若要继续完成这条中介路径，需要另一个包含这 5 个 Kynurenine 工具 SNP 的 AHR expression full summary statistics，或接受仅 `rs3184504` 的探索性单 SNP Wald 估计。

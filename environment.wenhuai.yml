@@ -15,6 +15,7 @@ dependencies:
   - r-remotes
   - plink
   - htslib
+  - aria2
   - wget
   - curl
   - unzip
