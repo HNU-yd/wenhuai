@@ -8,6 +8,7 @@ dependencies:
   - numpy
   - matplotlib
   - scipy
+  - python-docx
   - r-base=4.4
   - r-data.table
   - r-ggplot2

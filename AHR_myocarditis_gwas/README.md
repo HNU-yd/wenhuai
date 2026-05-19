@@ -77,6 +77,7 @@ conda run -n wenhuai python AHR_myocarditis_gwas/scripts/15_add_docx_ahr_mediati
 - `results/add_project/AHR_two_snp_mediation_status.tsv`
 - `results/add_project/AHR_two_snp_coloc_posterior_context.tsv`
 - `results/add_project/AHR_add_project_report.md`
+- `results/add_project/AHR_add_project_word_report.docx`
 - `results/figures/AHR_two_snp_mediation_model.png`
 - `results/figures/AHR_eqtlgen_AHR_locus_manhattan_two_snp.png`
 - `results/figures/AHR_myocarditis_locus_manhattan_two_snp.png`
@@ -84,3 +85,9 @@ conda run -n wenhuai python AHR_myocarditis_gwas/scripts/15_add_docx_ahr_mediati
 - `results/figures/AHR_two_snp_wald_ratio_forest.png`
 
 说明：本地已按 `加项目.docx` 完成 AHR expression -> myocarditis 的两 SNP Wald ratio、coloc 汇总、Manhattan/locus 图和中介模式图。本节主交付只纳入文档指定的 `rs17643734`、`rs59291726`。
+
+Word 报告可复现生成：
+
+```bash
+conda run -n wenhuai python AHR_myocarditis_gwas/scripts/18_build_add_project_word_report.py
+```
